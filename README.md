@@ -32,14 +32,6 @@ Camera → MediaPipe → elbow Y vs shoulder Y → count push-up
 pip install mediapipe opencv-python
 ```
 
-## How to run
-```
-python push_ups.py
-```
-
-Stand sideways to the camera so your elbow and shoulder are clearly visible.
-Press Q to quit.
-
 ## Tips
 
 - Stand sideways to the camera for best detection

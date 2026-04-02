@@ -23,7 +23,7 @@ Camera → MediaPipe → elbow Y vs shoulder Y → count push-up
 
 ## Tech stack
 
-- Python 3.9
+- Python 3.10
 - MediaPipe
 - OpenCV
 

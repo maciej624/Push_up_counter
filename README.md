@@ -1,39 +1,38 @@
-# Push-up Counter 💪
-
-Real-time push-up counter using MediaPipe pose detection and OpenCV.
-
+# 💪 AI Push-Up Counter (MediaPipe)
 ![demo](demo_push_ups.gif)
+![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
+![OpenCV](https://img.shields.io/badge/opencv-%23white.svg?logo=opencv&logoColor=white)
+![MediaPipe](https://img.shields.io/badge/MediaPipe-AI-orange.svg)
 
-## What it does
+A real-time push-up counter using Computer Vision. The script analyzes the user's pose via webcam, tracks body landmarks, and automatically counts repetitions based on the vertical distance between the elbow and shoulder.
 
-- Detects your body position in real time using MediaPipe
-- Counts push-ups automatically when you go from bottom to top position
-- Shows fireworks effect after each push-up
-- Displays current position (UP/DOWN) and total count on screen
+---
 
-## How it works
+## 🚀 Features
 
-MediaPipe detects 33 body landmarks in real time.
-The program tracks the Y position of the left elbow and shoulder.
-When elbow drops below shoulder level - position is DOWN.
-When elbow rises back up - position is UP and counter increases by 1.
-```
-Camera → MediaPipe → elbow Y vs shoulder Y → count push-up
-```
+* **Real-time Pose Detection:** Uses Google's MediaPipe library to track 33 body landmarks.
+* **Automatic Repetition Counting:** Logic based on the Y-coordinate relationship between the elbow and shoulder.
+* **Visual Feedback:** * Displays a real-time "skeleton" (landmarks and connections).
+    * HUD showing the current count and state (UP/DOWN).
+    * Dynamic image overlay (reward effect) triggered upon successful completion of a push-up.
+* **Efficient Logic:** Simple state-machine approach to prevent double-counting.
 
-## Tech stack
+---
 
-- Python 3.10
-- MediaPipe
-- OpenCV
+## 🛠️ How It Works
 
-## Requirements
-```
-pip install mediapipe opencv-python
-```
+1. **Preprocessing:** The frame is captured via OpenCV, flipped for a mirror effect, and converted from BGR to RGB (required by MediaPipe).
+2. **Landmark Extraction:** The system identifies the `LEFT_SHOULDER` and `LEFT_ELBOW` points.
+3. **Push-up Detection:** * If the elbow is significantly lower than the shoulder (`elbow > shoulder + 0.15`), the state is set to **DOWN**.
+    * A repetition is counted only when the user transitions from **DOWN** back to **UP**.
+4. **Overlay System:** When a repetition is counted, a timer (`show_effect`) is activated to display a custom image on the screen for 20 frames.
 
-## Tips
+---
 
-- Stand sideways to the camera for best detection
-- Make sure your full upper body is visible
-- If counting feels off, adjust the `0.15` threshold in the code
+## 📋 Requirements
+
+* Python 3.9+
+* Webcam
+* **Libraries:**
+  ```bash
+  pip install opencv-python mediapipe

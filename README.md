@@ -23,9 +23,7 @@ A real-time push-up counter using Computer Vision. The script analyzes the user'
 
 1. **Preprocessing:** The frame is captured via OpenCV, flipped for a mirror effect, and converted from BGR to RGB (required by MediaPipe).
 2. **Landmark Extraction:** The system identifies the `LEFT_SHOULDER` and `LEFT_ELBOW` points.
-3. **Push-up Detection:** * If the elbow is significantly lower than the shoulder (`elbow > shoulder + 0.15`), the state is set to **DOWN**.
-    * A repetition is counted only when the user transitions from **DOWN** back to **UP**.
-4. **Overlay System:** When a repetition is counted, a timer (`show_effect`) is activated to display a custom image on the screen for 20 frames.
+3. **Overlay System:** When a repetition is counted, a timer (`show_effect`) is activated to display a custom image on the screen for 20 frames.
 
 ---
 

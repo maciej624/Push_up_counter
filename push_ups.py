@@ -13,7 +13,7 @@ count = 0 # counting push ups
 position = None #either top or bottom
 show_effect = 0 #how long the picture is shown
 
-efekt = cv2.imread(r"C:\Users\kaenk\Desktop\efekt.jpg",cv2.IMREAD_UNCHANGED) #photo
+efekt = cv2.imread(r"photo.jpg",cv2.IMREAD_UNCHANGED) #photo
 if efekt is not None:
     efekt = cv2.resize(efekt, (200, 200))
 else:
